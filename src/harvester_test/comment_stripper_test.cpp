@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
-#include "../harvester/comment_stripper_winpsdk.h"
+#include <comment_stripper_winpsdk.h>
 #include <string>
 
 using namespace testing;

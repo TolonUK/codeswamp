@@ -1,10 +1,10 @@
-#include "code_scanner.h"
+#include <code_scanner.h>
 
 #include <iostream>
 #include <fstream>
 #include <vector>
 #include <boost/function.hpp>
-#include "make_code_record.h"
+#include <make_code_record.h>
 #include "harvester_program_options.h"
 
 using namespace std;

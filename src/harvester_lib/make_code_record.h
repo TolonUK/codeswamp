@@ -1,10 +1,11 @@
 #pragma once
 
+#include "harvester_lib.h"
 #include "code_scanner.h"
 
 namespace codeswamp {
 
-class make_code_record
+class harvester_export make_code_record
 {
 public:
     make_code_record(

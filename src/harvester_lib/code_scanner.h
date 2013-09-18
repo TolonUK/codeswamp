@@ -1,5 +1,6 @@
 #pragma once
 
+#include "harvester_lib.h"
 #include <algorithm>
 #include <iosfwd>
 #include <string>
@@ -7,7 +8,7 @@
 
 namespace codeswamp {
 
-class CCode
+class harvester_export CCode
 {
 public:
     CCode(
@@ -21,6 +22,7 @@ public:
     m_severity(severity)
     { }
 
+    harvester_export 
     friend std::ostream& operator<<(std::ostream&, const CCode&);
 
 private:
@@ -30,7 +32,7 @@ private:
     unsigned __int16 m_severity;
 };
 
-class CCodeRecord
+class harvester_export CCodeRecord
 {
 public:
     CCodeRecord(
@@ -49,6 +51,7 @@ public:
         m_code(src.m_code)
     { }
 
+    harvester_export 
     friend std::ostream& operator<<(std::ostream&, const CCodeRecord&);
 
 private:
@@ -57,7 +60,7 @@ private:
     CCode m_code;
 };
 
-class CCodePreRecord
+class harvester_export CCodePreRecord
 {
 public:
     void add_comment(const std::string& s)
@@ -111,6 +114,7 @@ public:
     void copy_number_store(T& t) const
     { copy(m_number_store.begin(), m_number_store.end(), t); }
 
+    harvester_export 
     friend std::ostream& operator<<(std::ostream&, const CCodePreRecord&);
 
 protected:
@@ -126,7 +130,7 @@ public:
     virtual void operator()(const CCodePreRecord&) = 0;
 };
 
-class code_scanner
+class harvester_export code_scanner
 {
 public:
     void parse(std::istream&, ICodePreRecordSink&);

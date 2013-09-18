@@ -1,4 +1,5 @@
 #include "harvester_program_options.h"
+#include <iostream>
 #include <boost/program_options.hpp>
 
 using namespace codeswamp::harvester;

@@ -1,8 +1,9 @@
 #pragma once
 
+#include "harvester_lib.h"
 #include <string>
 
-class strip_comment_winpsdk
+class harvester_export strip_comment_winpsdk
 {
 public:
     strip_comment_winpsdk(const std::string& comment);

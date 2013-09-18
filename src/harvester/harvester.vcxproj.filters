@@ -18,23 +18,11 @@
     <ClCompile Include="harvester.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="code_scanner.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="make_code_record.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="harvester_program_options.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="code_scanner.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="make_code_record.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="harvester_program_options.h">
       <Filter>Header Files</Filter>
     </ClInclude>
