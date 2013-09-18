@@ -19,7 +19,7 @@ string strip_comment(const string& comment)
     // without even a comment marker, then reduce the comment string to just
     // the text after the last blank line.
     {
-        auto iLastBlankLine = boost::ifind_last(s, "\n\n");
+        auto iLastBlankLine = boost::find_last(s, "\n\n");
 
         if (iLastBlankLine.end() != s.end())
         {

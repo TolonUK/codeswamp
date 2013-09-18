@@ -8,6 +8,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "harvester_test", "harvester
 		{3AD1887F-A98E-42C5-802E-94C7DDE2AC33} = {3AD1887F-A98E-42C5-802E-94C7DDE2AC33}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "harvester_lib", "harvester_lib\harvester_lib.vcxproj", "{D151CC10-4E99-4546-9394-EF8C367C58F8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -22,6 +24,10 @@ Global
 		{FDDB942F-ACD0-49FE-BB20-30FB4DF7C051}.Debug|Win32.Build.0 = Debug|Win32
 		{FDDB942F-ACD0-49FE-BB20-30FB4DF7C051}.Release|Win32.ActiveCfg = Release|Win32
 		{FDDB942F-ACD0-49FE-BB20-30FB4DF7C051}.Release|Win32.Build.0 = Release|Win32
+		{D151CC10-4E99-4546-9394-EF8C367C58F8}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D151CC10-4E99-4546-9394-EF8C367C58F8}.Debug|Win32.Build.0 = Debug|Win32
+		{D151CC10-4E99-4546-9394-EF8C367C58F8}.Release|Win32.ActiveCfg = Release|Win32
+		{D151CC10-4E99-4546-9394-EF8C367C58F8}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

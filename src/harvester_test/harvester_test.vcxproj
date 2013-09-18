@@ -83,7 +83,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\harvester\comment_stripper_winpsdk.cpp" />
     <ClCompile Include="comment_stripper_test.cpp" />
     <ClCompile Include="harvester_test.cpp" />
   </ItemGroup>

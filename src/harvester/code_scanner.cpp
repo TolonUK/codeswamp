@@ -1,5 +1,4 @@
 #include "code_scanner.h"
-//#include <contrib/simple_cpp_lexer/simple_cpp_lexer.hpp>
 #include <contrib/simple_cpp_lexer/error_code_lexer.hpp>
 #include <boost/algorithm/string.hpp>
 
@@ -9,6 +8,7 @@ using namespace codeswamp;
 using namespace boost::algorithm;
 
 namespace codeswamp {
+
 template<typename T>
 std::ostream& operator<<(std::ostream& o, const vector<T>& v)
 {

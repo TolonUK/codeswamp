@@ -21,9 +21,6 @@
     <ClCompile Include="comment_stripper_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\harvester\comment_stripper_winpsdk.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\harvester\comment_stripper_winpsdk.h">
