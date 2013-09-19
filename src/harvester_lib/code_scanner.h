@@ -8,7 +8,7 @@
 
 namespace codeswamp {
 
-class harvester_export CCode
+class CCode
 {
 public:
     CCode(
@@ -21,8 +21,7 @@ public:
     m_facility(facility),
     m_severity(severity)
     { }
-
-    harvester_export 
+ 
     friend std::ostream& operator<<(std::ostream&, const CCode&);
 
 private:
@@ -32,7 +31,7 @@ private:
     unsigned __int16 m_severity;
 };
 
-class harvester_export CCodeRecord
+class CCodeRecord
 {
 public:
     CCodeRecord(
@@ -51,7 +50,6 @@ public:
         m_code(src.m_code)
     { }
 
-    harvester_export 
     friend std::ostream& operator<<(std::ostream&, const CCodeRecord&);
 
 private:
@@ -60,7 +58,7 @@ private:
     CCode m_code;
 };
 
-class harvester_export CCodePreRecord
+class CCodePreRecord
 {
 public:
     void add_comment(const std::string& s)
@@ -114,7 +112,6 @@ public:
     void copy_number_store(T& t) const
     { copy(m_number_store.begin(), m_number_store.end(), t); }
 
-    harvester_export 
     friend std::ostream& operator<<(std::ostream&, const CCodePreRecord&);
 
 protected:
@@ -130,7 +127,7 @@ public:
     virtual void operator()(const CCodePreRecord&) = 0;
 };
 
-class harvester_export code_scanner
+class code_scanner
 {
 public:
     void parse(std::istream&, ICodePreRecordSink&);

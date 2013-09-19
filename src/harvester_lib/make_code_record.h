@@ -5,7 +5,7 @@
 
 namespace codeswamp {
 
-class harvester_export make_code_record
+class make_code_record
 {
 public:
     make_code_record(
