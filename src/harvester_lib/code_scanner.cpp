@@ -233,7 +233,6 @@ private:
     ICodePreRecordSink& m_out;
 };
 
-//int parse(istream& in, ostream& out)
 void code_scanner::parse(istream& in, ICodePreRecordSink& sink)
 {
     in.unsetf(ios::skipws); //  Turn off white space skipping on the stream

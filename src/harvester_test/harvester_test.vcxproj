@@ -87,6 +87,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="code_scanner_test.cpp" />
     <ClCompile Include="comment_stripper_test.cpp" />
     <ClCompile Include="harvester_test.cpp" />
   </ItemGroup>

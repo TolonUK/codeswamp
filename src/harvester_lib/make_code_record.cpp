@@ -50,21 +50,8 @@ CCode mcri_code(const CCodePreRecord& in)
         HRESULT_SEVERITY(nRawCode));
 }
 
-CCodePreRecord create_processed_cpr(const CCodePreRecord& in)
-{
-    cout << "Processing CPR: ";
-    cout << "identifier store: ";
-    in.copy_identifier_store(ostream_iterator<string>(cout));
-    cout << ", number store: ";
-    in.copy_number_store(ostream_iterator<string>(cout));
-
-    return in;
-}
-
 CCodeRecord make_code_record_impl(const CCodePreRecord& in)
 {
-    CCodePreRecord processed_cpr(create_processed_cpr(in));
-
     return CCodeRecord(
         mcri_identifier(in),
         mcri_comment(in),
