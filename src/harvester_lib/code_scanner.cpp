@@ -170,6 +170,9 @@ public:
         m_cpr.add_number(trim_input(s));
     }
 
+    void flush()
+    { commit(); }
+
     preprocessor_action& preprocessor()
     { return m_preprocessor; }
     comment_action& comment()
@@ -217,6 +220,9 @@ struct my_actions
         number(m_r.number())
     { }
 
+    void flush()
+    { m_r.flush(); }
+
     record_action m_r;
 
     preprocessor_action& preprocessor;
@@ -243,6 +249,10 @@ void code_scanner::parse(istream& in, ICodePreRecordSink& sink)
         istream_iterator<char>(),
         std::back_inserter(vec));
 
+    // This handles the case where the header input ends without a newline.
+    // Without it, the last error code in the header may not be processed.
+    vec.push_back('\n');
+
     vector<char>::const_iterator first = vec.begin();
     vector<char>::const_iterator last = vec.end();
 
@@ -250,6 +260,8 @@ void code_scanner::parse(istream& in, ICodePreRecordSink& sink)
     error_code_lexer_2<my_actions> p(actions);
     parse_info<vector<char>::const_iterator> info =
         ::parse(first, last, p);
+
+    actions.flush();
 
     if (!info.full)
     {

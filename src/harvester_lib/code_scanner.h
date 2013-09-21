@@ -112,6 +112,18 @@ public:
     void copy_number_store(T& t) const
     { copy(m_number_store.begin(), m_number_store.end(), t); }
 
+    const std::vector<std::string>& comment_store() const
+    { return m_comment_store; }
+
+    const std::vector<std::string>& preprocessor_store() const
+    { return m_preprocessor_store; }
+
+    const std::vector<std::string>& identifier_store() const
+    { return m_identifier_store; }
+
+    const std::vector<std::string>& number_store() const
+    { return m_number_store; }
+
     friend std::ostream& operator<<(std::ostream&, const CCodePreRecord&);
 
 protected:
