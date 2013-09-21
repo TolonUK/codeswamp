@@ -28,7 +28,7 @@ namespace boost { namespace spirit { namespace classic {
 namespace simple_cpp_lexer_spirit = boost::spirit::repository;
 namespace boost { namespace spirit { namespace repository {
 #endif
-	
+    
     // simple_cpp_lexer, as its name suggests, is a very simple lexer that
     // recognises c++ lexical entities such as keywords, identifiers,
     // preprocessor directives, etc., and calls user supplied semantic actions
@@ -141,7 +141,7 @@ namespace boost { namespace spirit { namespace repository {
         Actions& actions;
     };
 
-	//////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////
 
     template <typename Actions>
     struct error_code_lexer_2
@@ -217,7 +217,7 @@ namespace boost { namespace spirit { namespace repository {
 
                 number
                     =   *(alnum_p | blank_p | graph_p)
-                        >>  *space_p
+                        >>  space_p
                     ;
 
                 identifier
@@ -243,7 +243,7 @@ namespace boost { namespace spirit { namespace repository {
         Actions& actions;
     };
 
-	//////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////
 
     template <typename Actions>
     struct error_code_lexer
@@ -269,7 +269,7 @@ namespace boost { namespace spirit { namespace repository {
                     ;
 
                 preprocessor
-					=   "#define" >> *space_p >> identifier >> *space_p >> *(alnum_p | blank_p | graph_p)
+                    =   "#define" >> *space_p >> identifier >> *space_p >> *(alnum_p | blank_p | graph_p)
                     ;
 
                 comment
