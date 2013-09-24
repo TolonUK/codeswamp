@@ -62,7 +62,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <ProgramDatabaseFile>$(OutDir)$(TargetName)d.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
       <AdditionalLibraryDirectories>..\..\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>harvester_lib_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
