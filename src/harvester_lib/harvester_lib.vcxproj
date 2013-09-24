@@ -82,15 +82,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
+    <ClInclude Include="code.h" />
+    <ClInclude Include="code_pre_record.h" />
+    <ClInclude Include="code_record.h" />
     <ClInclude Include="code_scanner.h" />
     <ClInclude Include="comment_stripper_winpsdk.h" />
     <ClInclude Include="harvester_lib.h" />
     <ClInclude Include="make_code_record.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="code.cpp" />
+    <ClCompile Include="code_pre_record.cpp" />
+    <ClCompile Include="code_record.cpp" />
     <ClCompile Include="code_scanner.cpp" />
     <ClCompile Include="comment_stripper_winpsdk.cpp" />
     <ClCompile Include="make_code_record.cpp" />

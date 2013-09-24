@@ -23,27 +23,53 @@ ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
-#ifndef CODESWAMP__CODE_SCANNER_H
-#define CODESWAMP__CODE_SCANNER_H
-
-#include "harvester_lib.h"
 #include "code_pre_record.h"
-#include <iosfwd>
+#include <iostream>
+#include <boost/tuple/tuple_comparison.hpp>
+
+using namespace codeswamp;
+using namespace std;
 
 namespace codeswamp {
-
-class ICodePreRecordSink
+template<typename T>
+std::ostream& operator<<(std::ostream& o, const vector<T>& v)
 {
-public:
-    virtual void operator()(const CCodePreRecord&) = 0;
-};
+    auto i = v.begin();
 
-class code_scanner
-{
-public:
-    void parse(std::istream&, ICodePreRecordSink&);
-};
+    if (i != v.end())
+    {
+        o << *i;
+        ++i;
+        for(; i != v.end(); ++i)
+            o << "," << *i;
+    }
 
+    return o;
+}
 } // namespace codeswamp
 
-#endif
+bool CCodePreRecord::might_be_a_code() const
+{
+    return
+        (find(m_preprocessor_store.begin(), m_preprocessor_store.end(), std::string("#define")) != m_preprocessor_store.end())
+        && (!m_identifier_store.empty())
+        && (!m_number_store.empty());
+}
+
+bool CCodePreRecord::operator==(const CCodePreRecord& rhs) const
+{
+    return
+        boost::tie(m_comment_store, m_preprocessor_store, m_identifier_store, m_number_store)
+        ==
+        boost::tie(rhs.m_comment_store, rhs.m_preprocessor_store, rhs.m_identifier_store, rhs.m_number_store);
+}
+
+std::ostream& codeswamp::operator<<(std::ostream& os, const CCodePreRecord& cpr)
+{
+    return os << "CCodePreRecord("
+              << "m_comment_store: {" << cpr.m_comment_store
+              << "}, m_preprocessor_store: {" << cpr.m_preprocessor_store
+              << "}, m_identifier_store: {" << cpr.m_identifier_store
+              << "}, m_number_store: {" << cpr.m_number_store
+              << "})";
+}

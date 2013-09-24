@@ -23,22 +23,28 @@ ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
-#ifndef CODESWAMP__COMMENT_STRIPPER_WINPSDK_H
-#define CODESWAMP__COMMENT_STRIPPER_WINPSDK_H
+#include "code.h"
+#include <iostream>
+#include <boost/tuple/tuple_comparison.hpp>
 
-#include "harvester_lib.h"
-#include <string>
+using namespace boost;
+using namespace codeswamp;
+using namespace std;
 
-class strip_comment_winpsdk
+bool CCode::operator==(const CCode& rhs) const
 {
-public:
-    strip_comment_winpsdk(const std::string& comment);
+    return
+        boost::tie(m_code, m_facility, m_raw_code, m_severity)
+        ==
+        boost::tie(rhs.m_code, rhs.m_facility, rhs.m_raw_code, rhs.m_severity);
+}
 
-    operator const std::string&() const
-    { return m_stripped_comment; }
-
-private:
-    std::string m_stripped_comment;
-};
-
-#endif
+std::ostream& codeswamp::operator<<(std::ostream& os, const CCode& c)
+{
+    return os << "CCode("
+              << "m_raw_code := " << c.m_raw_code
+              << ", m_code := " << c.m_code
+              << ", m_facility := " << c.m_facility
+              << ", m_severity := " << c.m_severity
+              << ")";
+}

@@ -23,22 +23,46 @@ ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
-#ifndef CODESWAMP__COMMENT_STRIPPER_WINPSDK_H
-#define CODESWAMP__COMMENT_STRIPPER_WINPSDK_H
+#ifndef CODESWAMP__CODE_RECORD_H
+#define CODESWAMP__CODE_RECORD_H
 
-#include "harvester_lib.h"
+#include "code.h"
+#include <iosfwd>
 #include <string>
 
-class strip_comment_winpsdk
+namespace codeswamp {
+
+class CCodeRecord
 {
 public:
-    strip_comment_winpsdk(const std::string& comment);
+    CCodeRecord();
 
-    operator const std::string&() const
-    { return m_stripped_comment; }
+    CCodeRecord(
+        const std::string& identifier, 
+        const std::string& comment,
+        const CCode& code);
+
+    CCodeRecord(
+        std::string&& identifier,
+        std::string&& comment,
+        CCode&& code);
+
+    CCodeRecord(const CCodeRecord& src) :
+        m_identifier(src.m_identifier),
+        m_comment(src.m_comment),
+        m_code(src.m_code)
+    { }
+
+    bool operator==(const CCodeRecord& rhs) const;
+
+    friend std::ostream& operator<<(std::ostream&, const CCodeRecord&);
 
 private:
-    std::string m_stripped_comment;
+    std::string m_identifier;
+    std::string m_comment;
+    CCode m_code;
 };
+
+}
 
 #endif

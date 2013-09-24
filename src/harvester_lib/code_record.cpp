@@ -23,22 +23,47 @@ ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
-#ifndef CODESWAMP__COMMENT_STRIPPER_WINPSDK_H
-#define CODESWAMP__COMMENT_STRIPPER_WINPSDK_H
+#include "code_record.h"
+#include <iostream>
+#include <boost/tuple/tuple_comparison.hpp>
 
-#include "harvester_lib.h"
-#include <string>
+using namespace codeswamp;
+using namespace std;
 
-class strip_comment_winpsdk
+CCodeRecord::CCodeRecord()
+{ }
+
+CCodeRecord::CCodeRecord(
+        const std::string& identifier, 
+        const std::string& comment,
+        const CCode& code) : 
+    m_identifier(identifier),
+    m_comment(comment),
+    m_code(code)
+{ }
+
+CCodeRecord::CCodeRecord(
+        std::string&& identifier,
+        std::string&& comment,
+        CCode&& code) :
+    m_identifier(identifier),
+    m_comment(comment),
+    m_code(code)
+{ }
+
+bool CCodeRecord::operator==(const CCodeRecord& rhs) const
 {
-public:
-    strip_comment_winpsdk(const std::string& comment);
+    return
+        boost::tie(m_code, m_comment, m_identifier)
+        ==
+        boost::tie(rhs.m_code, rhs.m_comment, rhs.m_identifier);
+}
 
-    operator const std::string&() const
-    { return m_stripped_comment; }
-
-private:
-    std::string m_stripped_comment;
-};
-
-#endif
+std::ostream& codeswamp::operator<<(std::ostream& os, const CCodeRecord& cr)
+{
+    return os << "CCodeRecord("
+              << "m_identifier := " << cr.m_identifier
+              << ", m_comment := " << cr.m_comment
+              << ", m_code := " << cr.m_code
+              << ")";
+}

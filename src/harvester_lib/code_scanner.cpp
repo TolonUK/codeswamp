@@ -1,3 +1,28 @@
+/*
+Codeswamp is copyright (c) 2013, Alex Paterson (alex@tolon.co.uk).
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice, this
+  list of conditions and the following disclaimer in the documentation and/or
+  other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
 #include "code_scanner.h"
 #include <contrib/simple_cpp_lexer/error_code_lexer.hpp>
 #include <boost/algorithm/string.hpp>
@@ -6,17 +31,6 @@ using namespace std;
 using namespace simple_cpp_lexer_spirit;
 using namespace codeswamp;
 using namespace boost::algorithm;
-
-namespace codeswamp {
-
-template<typename T>
-std::ostream& operator<<(std::ostream& o, const vector<T>& v)
-{
-    for ( auto i : v )
-        o << i << ",";
-    return o;
-}
-} // namespace codeswamp
 
 struct null_action
 {
@@ -269,65 +283,4 @@ void code_scanner::parse(istream& in, ICodePreRecordSink& sink)
         //cerr << "parsing error\n";
         //cerr << string(info.stop, last);
     }
-}
-
-// CCodePreRecord
-
-bool CCodePreRecord::might_be_a_code() const
-{
-    return
-        (find(m_preprocessor_store.begin(), m_preprocessor_store.end(), std::string("#define")) != m_preprocessor_store.end())
-        && (!m_identifier_store.empty())
-        && (!m_number_store.empty());
-}
-
-std::ostream& codeswamp::operator<<(std::ostream& os, const CCodePreRecord& cpr)
-{
-    return os << "CCodePreRecord("
-              << "m_comment_store := " << cpr.m_comment_store
-              << ", m_preprocessor_store: " << cpr.m_preprocessor_store
-              << ", m_identifier_store: " << cpr.m_identifier_store
-              << ", m_number_store: " << cpr.m_number_store
-              << ")";
-}
-
-// CCodeRecord
-
-CCodeRecord::CCodeRecord(
-        const std::string& identifier, 
-        const std::string& comment,
-        const CCode& code) : 
-    m_identifier(identifier),
-    m_comment(comment),
-    m_code(code)
-{ }
-
-CCodeRecord::CCodeRecord(
-        std::string&& identifier,
-        std::string&& comment,
-        CCode&& code) :
-    m_identifier(identifier),
-    m_comment(comment),
-    m_code(code)
-{ }
-
-std::ostream& codeswamp::operator<<(std::ostream& os, const CCodeRecord& cr)
-{
-    return os << "CCodeRecord("
-              << "m_identifier := " << cr.m_identifier
-              << ", m_comment := " << cr.m_comment
-              << ", m_code := " << cr.m_code
-              << ")";
-}
-
-// CCode
-
-std::ostream& codeswamp::operator<<(std::ostream& os, const CCode& c)
-{
-    return os << "CCode("
-              << "m_raw_code := " << c.m_raw_code
-              << ", m_code := " << c.m_code
-              << ", m_facility := " << c.m_facility
-              << ", m_severity := " << c.m_severity
-              << ")";
 }

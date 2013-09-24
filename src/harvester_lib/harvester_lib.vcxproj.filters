@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="comment_stripper_winpsdk.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -30,6 +27,15 @@
     <ClInclude Include="make_code_record.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="code.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code_record.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code_pre_record.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="comment_stripper_winpsdk.cpp">
@@ -39,6 +45,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="make_code_record.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code_record.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code_pre_record.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
