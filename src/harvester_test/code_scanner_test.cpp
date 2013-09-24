@@ -67,3 +67,16 @@ TEST(code_scanner, skip_header_preamble)
     EXPECT_EQ(cpr.identifier_store(), s.last_cpr().identifier_store());
     EXPECT_EQ(cpr.number_store(), s.last_cpr().number_store());
 }
+
+TEST(code_scanner, lone_facility_code)
+{
+    CMockSink s;
+    code_scanner cs;
+    ifstream ifs("..\\data\\test_cases\\lone_facility_code.h");
+
+    CCodePreRecord cpr("", "#define", "FACILITY_XAML", "43");
+
+    EXPECT_CALL(s, call_op(cpr));
+    
+    cs.parse(ifs, s);
+}

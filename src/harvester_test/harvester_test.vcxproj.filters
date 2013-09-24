@@ -24,6 +24,18 @@
     <ClCompile Include="code_scanner_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="make_code_record_test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code_test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code_record_test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="code_prerecord_test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\harvester\comment_stripper_winpsdk.h">

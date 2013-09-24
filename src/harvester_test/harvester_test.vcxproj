@@ -88,9 +88,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="code_prerecord_test.cpp" />
+    <ClCompile Include="code_record_test.cpp" />
     <ClCompile Include="code_scanner_test.cpp" />
+    <ClCompile Include="code_test.cpp" />
     <ClCompile Include="comment_stripper_test.cpp" />
     <ClCompile Include="harvester_test.cpp" />
+    <ClCompile Include="make_code_record_test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\harvester\comment_stripper_winpsdk.h" />
