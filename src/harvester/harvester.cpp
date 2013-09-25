@@ -41,7 +41,6 @@ int main(int argc, const char** argv)
         MySink my_sink;
         //ifstream ifs("C:\\Program Files (x86)\\Microsoft SDKs\\Windows\\8.0CP\\Include\\shared\\WinError.h");
         ifstream ifs("C:\\Users\\alex paterson\\Documents\\GitHub\\codeswamp\\data\\sample.h");
-        //ifstream ifs("C:\\Users\\alex paterson\\Documents\\GitHub\\codeswamp\\data\\newline_end.h");
         cs.parse(ifs, my_sink);
     }
 }
