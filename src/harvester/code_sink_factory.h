@@ -28,18 +28,21 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 namespace codeswamp { namespace harvester {
 
+//! \todo complete this interface
 class ICodeSink
 {
 public:
 
 };
 
+//! \todo complete this interface
 class ICodeSinkFactory
 {
 public:
     register
 };
 
+//! \todo complete this factory class
 class CCodeSinkFactory : public ICodeSinkFactory
 {
 };

@@ -29,6 +29,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "harvester_lib.h"
 #include <string>
 
+//! \todo comment this class
 class strip_comment_winpsdk
 {
 public:

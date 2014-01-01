@@ -33,6 +33,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 namespace codeswamp {
 
+//! \todo comment this class
 class CCodePreRecord
 {
 public:

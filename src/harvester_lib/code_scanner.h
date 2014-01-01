@@ -32,12 +32,14 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 namespace codeswamp {
 
+//! \todo comment this interface
 class ICodePreRecordSink
 {
 public:
     virtual void operator()(const CCodePreRecord&) = 0;
 };
 
+//! \todo comment this class
 class code_scanner
 {
 public:

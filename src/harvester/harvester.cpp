@@ -46,7 +46,7 @@ int main(int argc, const char** argv)
 
     if (options.IsProgramRunnable())
     {
-
+        //! \todo re-enable parsing code
         /*code_scanner cs;
         MySink my_sink;
         ifstream ifs();
