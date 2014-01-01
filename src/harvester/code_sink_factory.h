@@ -23,43 +23,27 @@ ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
-#ifndef CODESWAMP__HARVESTER_PROGRAM_OPTIONS_H
-#define CODESWAMP__HARVESTER_PROGRAM_OPTIONS_H
-
-#include <string>
+#ifndef CODESWAMP__CODE_SINK_FACTORY_H
+#define CODESWAMP__CODE_SINK_FACTORY_H
 
 namespace codeswamp { namespace harvester {
 
-class COptions
+class ICodeSink
 {
 public:
-    COptions();
-    void parse_command_line(int argc, const char** argv);
 
-    void SetProgramRunnable(bool b)
-    { m_bProgramRunnable = b; }
-
-    bool IsProgramRunnable() const
-    { return m_bProgramRunnable; }
-
-    void SetSource(const std::string& s)
-    { m_source = s; }
-
-    bool HasSource() const
-    { return !m_source.empty(); }
-
-    void SetDest(const std::string& s)
-    { m_dest = s; }
-
-    bool HasDest() const
-    { return !m_dest.empty(); }
-
-private:
-    bool m_bProgramRunnable;
-    std::string m_source;
-    std::string m_dest;
 };
 
-}} // namespace codeswamp::harvester
+class ICodeSinkFactory
+{
+public:
+    register
+};
+
+class CCodeSinkFactory : public ICodeSinkFactory
+{
+};
+
+} } // namespace codeswamp::harvester
 
 #endif

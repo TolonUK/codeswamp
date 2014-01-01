@@ -63,7 +63,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>gtestd.lib;gmockd.lib;harvester_lib_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <ProgramDatabaseFile>$(OutDir)$(TargetName)d.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
       <AdditionalLibraryDirectories>..\..\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>

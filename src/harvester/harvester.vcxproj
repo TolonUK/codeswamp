@@ -93,6 +93,8 @@
     <ClCompile Include="harvester_program_options.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="code_sink_factory.h" />
+    <ClInclude Include="code_source_factory.h" />
     <ClInclude Include="harvester_program_options.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

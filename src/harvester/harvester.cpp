@@ -11,8 +11,6 @@ using namespace std;
 using namespace codeswamp;
 using namespace codeswamp::harvester;
 
-static COptions s_options;
-
 class MySink : public ICodePreRecordSink
 {
 public:
@@ -22,25 +20,36 @@ public:
         CCodeRecord cr(mcr);
 
         cout << "========================================" << endl;
-        if (s_options.DisplayPrerecord())
-        {
-            cout << cpr << endl;
-            cout << "----------------------------------------" << endl;
-        }
         cout << cr << endl;
     }
 };
 
 int main(int argc, const char** argv)
 {
-    s_options.parse_command_line(argc, argv);
+    cout << "codeswamp harvester, copyright (c) 2013 Alex Paterson (alex@tolon.co.uk)" << endl;
+    cout << "------------------------------------------------------------------------" << endl;
 
-    if (s_options.IsProgramRunnable())
+    COptions options;
+    options.parse_command_line(argc, argv);
+
+    if (options.ListFormats())
     {
-        code_scanner cs;
+        CCodeSourceFactory src_factory;
+        CCodeSinkFactory sink_factory;
+
+        cout << "sources:" << endl;
+        src_factory.print_members(cout);
+
+        cout << "sinks:" << endl;
+        sink_factory.print_members(cout);
+    }
+
+    if (options.IsProgramRunnable())
+    {
+
+        /*code_scanner cs;
         MySink my_sink;
-        //ifstream ifs("C:\\Program Files (x86)\\Microsoft SDKs\\Windows\\8.0CP\\Include\\shared\\WinError.h");
-        ifstream ifs("C:\\Users\\alex paterson\\Documents\\GitHub\\codeswamp\\data\\sample.h");
-        cs.parse(ifs, my_sink);
+        ifstream ifs();
+        cs.parse(ifs, my_sink);*/
     }
 }

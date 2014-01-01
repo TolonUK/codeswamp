@@ -26,5 +26,11 @@
     <ClInclude Include="harvester_program_options.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="code_source_factory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code_sink_factory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
