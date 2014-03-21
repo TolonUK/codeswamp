@@ -43,6 +43,7 @@ void COptions::parse_command_line(int ac, const char** av)
     po::options_description desc("Allowed options");
     desc.add_options()
         ("help", "produce help message")
+        ("formats", "list source and sink formats")
         ("src", po::value<string>(), "source data file path")
         ("dest", po::value<string>(), "destination, one of stdout, sqlite. If sqlite, follow with database file path, e.g. sqlite:c:\\test.db")
     ;
@@ -56,6 +57,9 @@ void COptions::parse_command_line(int ac, const char** av)
         cout << desc << "\n";
         return;
     }
+
+    if (vm.count("formats"))
+        ShowFormats(true);
 
     if (vm.count("src"))
         SetSource(vm["src"].as<string>());

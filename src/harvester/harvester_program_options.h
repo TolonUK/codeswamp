@@ -54,8 +54,15 @@ public:
     bool HasDest() const
     { return !m_dest.empty(); }
 
+    void ShowFormats(bool b)
+    { m_bShowFormats = b; }
+
+    bool ShowFormats() const
+    { return m_bShowFormats; }
+
 private:
     bool m_bProgramRunnable;
+    bool m_bShowFormats;
     std::string m_source;
     std::string m_dest;
 };

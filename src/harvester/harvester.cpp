@@ -32,24 +32,24 @@ int main(int argc, const char** argv)
     COptions options;
     options.parse_command_line(argc, argv);
 
-    if (options.ListFormats())
+    if (options.ShowFormats())
     {
-        CCodeSourceFactory src_factory;
+        /*CCodeSourceFactory src_factory;
         CCodeSinkFactory sink_factory;
 
         cout << "sources:" << endl;
         src_factory.print_members(cout);
 
         cout << "sinks:" << endl;
-        sink_factory.print_members(cout);
+        sink_factory.print_members(cout);*/
     }
 
     if (options.IsProgramRunnable())
     {
         //! \todo re-enable parsing code
-        /*code_scanner cs;
+        code_scanner cs;
         MySink my_sink;
         ifstream ifs();
-        cs.parse(ifs, my_sink);*/
+        cs.parse(ifs, my_sink);
     }
 }
